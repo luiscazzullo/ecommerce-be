@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const userSchema = new Schema({
   name: {
     type: String,
-    minLength: [5, "El nombre debe tener mas de 5 caracteres"],
+    minLength: [3, "El nombre debe tener mas de 3 caracteres"],
     maxLenght: [30, "El nombre debe tener menos de 30 caracteres"],
     required: true,
     trim: true,
@@ -18,8 +18,7 @@ const userSchema = new Schema({
 
   email: {
     type: String,
-    minLength: [4, "Debe tener entre 4 y 30 caracteres"],
-    maxLength: [30, "Debe tener entre 4 y 30 caracteres"],
+    maxLength: [30, "El email debe tener entre 4 y 30 caracteres"],
     required: true,
     trim: true,
     unique: true,

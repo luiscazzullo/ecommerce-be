@@ -3,14 +3,15 @@ const { Schema, model } = require("mongoose");
 const userSchema = new Schema({
   name: {
     type: String,
-    maxLength: [30, "Debe tener menos de 30 caracteres"],
+    minLength: [5, "El nombre debe tener mas de 5 caracteres"],
+    maxLenght: [30, "El nombre debe tener menos de 30 caracteres"],
     required: true,
     trim: true,
   },
 
   lastname: {
     type: String,
-    maxLength: [30, "Debe tener menos de 30 caracteres"],
+    maxLength: [30, "El apellido debe tener menos de 30 caracteres"],
     required: true,
     trim: true,
   },

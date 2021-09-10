@@ -30,7 +30,6 @@ const userSchema = new Schema({
     minLength: [8, "La contraseña debe tener mas de 8 caracteres"],
     maxLenght: [30, "La contraseña debe tener menos de 30 caracteres"],
     required: true,
-    unique: true,
   },
 
   isAdmin: {

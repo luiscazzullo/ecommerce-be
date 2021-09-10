@@ -9,14 +9,13 @@ exports.createUser = async (req, res) => {
       return res.status(400).json({ status: "error", message: "Bad request" });
     }
     user = new User(req.body);
-    const salt = await bcrypt.genSalt(5);
+    const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(password, salt);
     await user.save();
     return res
       .status(201)
       .json({ status: "seccess", message: "usuario creado", user });
   } catch (error) {
-    console.log(error);
     res.status(500).json({ status: "failed", message: "Algo salio mal" });
   }
 };

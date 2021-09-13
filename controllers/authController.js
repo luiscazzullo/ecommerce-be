@@ -39,3 +39,14 @@ exports.login = async (req,res)=>{
     res.status(500).json({status:"failed", message:"Algo salio mal"})
   }
 }
+
+exports.renewToken = async (req, res) =>{
+  try {
+    const id = req.userId
+    const user = await User.findById(id)
+    const token = await generateJWT(id)
+    res.status(200).json({status:"success", token, user})
+  } catch (error) {
+    res.status(500).json({status:"failed", message:"Algo salio mal"})
+  }
+}

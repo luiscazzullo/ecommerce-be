@@ -10,7 +10,7 @@ exports.getUsers = async (req, res) => {
           ],
         }
       : {};
-    const users = await User.find({ ...search });
+    const users = await User.find({ ...search }).select("-password");
     res.status(200).json(users);
   } catch (error) {
     res.status(500).json({ status: "failed", message: "Algo salio mal" });
